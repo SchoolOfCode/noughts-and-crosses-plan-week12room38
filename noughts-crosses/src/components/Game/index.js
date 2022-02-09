@@ -4,7 +4,7 @@ import PlayerTurn from "../PlayerTurn";
 import Winner from "../Winner";
 
 const Game = () => {
-  const [square, setSquare] = useState(null);
+  const [square, setSquare] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("X");
 
   function makeAMove() {

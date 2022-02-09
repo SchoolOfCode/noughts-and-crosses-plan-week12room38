@@ -1,7 +1,17 @@
 import React from "react";
 
-const Square = (makeMove) => {
-  return <div></div>;
+const Square = ({value, onClick}) => {
+  
+  
+  
+  return (
+
+<button onClick={onClick}>
+  {value}
+</button>
+
+)
+
 };
 
-export default Squre;
+export default Square;

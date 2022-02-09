@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { calculateWinner } from "../../helper";
 import Board from "../Board";
+// import Square from "../Square";
 
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXisNext] = useState(true);
   const winner = calculateWinner(history[stepNumber]);
-  const xO = xIsNext ? "X" : "O";
+  const xO = xIsNext ? "❌" : "🟢";
 
   const handleClick = (i) => {
     const historyPoint = history.slice(0, stepNumber + 1);
@@ -37,9 +38,22 @@ const Game = () => {
       );
     });
 
+  // ↓ attempt to display "it's a Draw"
+  // function declareResult() {
+  //   if (winner === true) {
+  //     return "And the winner is :" + winner;
+  //   } else if (winner === false) {
+  //     if (Square === null) {
+  //       return "Next Player: " + xO;
+  //     } else if (Square !== null) {
+  //       return "It's a draw!";
+  //     }
+  //   }
+  // }
+
   return (
     <>
-      <h1>React Tic Tac Toe - With Hooks</h1>
+      <h1>Noughts and Crosses: Toni, Sagar and Kate</h1>
       <Board squares={history[stepNumber]} onClick={handleClick} />
       <div className="info-wrapper">
         <div>
@@ -47,6 +61,8 @@ const Game = () => {
           {renderMoves()}
         </div>
         <h3>{winner ? "Winner: " + winner : "Next Player: " + xO}</h3>
+        {/* <h3>The results are:</h3>
+        {declareResult()} */}
       </div>
     </>
   );
